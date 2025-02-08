@@ -8,9 +8,10 @@ import json
 app = Flask(__name__)
 
 # Load the model
-model = MLP(input_dim=26, num_classes=2)
-model.load_state_dict(torch.load('loan_approval_model.pth'))
-model.eval()  # Set the model to evaluation mode
+# model = MLP(input_dim=26, num_classes=2)
+# model.load_state_dict(torch.load('loan_approval_model.pth'))
+# model.eval()  # Set the model to evaluation mode
+model = joblib.load('model.joblib')
 
 # Load the preprocessor
 preprocessor = joblib.load('loan_approval_preprocessor.joblib')
